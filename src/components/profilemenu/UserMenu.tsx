@@ -11,6 +11,7 @@ import {
 } from "../ui/dropdown-menu";
 import { User } from "lucide-react";
 import DarkMode from "../theme/DarkMode";
+import UserLogout from "../logout/UserLogout";
 
 const UserMenu = () => {
 	return (
@@ -45,7 +46,7 @@ const UserMenu = () => {
 					<DropdownMenuSeparator />
 
 					<DropdownMenuItem>
-						<div className="">Logout</div>
+						<UserLogout />
 					</DropdownMenuItem>
 				</DropdownMenuContent>
 			</DropdownMenu>
