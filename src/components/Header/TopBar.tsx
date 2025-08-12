@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Button } from "../ui/button";
+import UserMenu from "../profilemenu/UserMenu";
 
 const TopBar = () => {
 	return (
@@ -13,7 +14,7 @@ const TopBar = () => {
 					</Link>
 					<div className="flex items-center justify-center gap-4">
 						<Button>Post</Button>
-						<div className="">User Menu</div>
+						<UserMenu />
 					</div>
 				</section>
 			</nav>
