@@ -10,6 +10,7 @@ import {
 	DropdownMenuTrigger,
 } from "../ui/dropdown-menu";
 import { User } from "lucide-react";
+import DarkMode from "../theme/DarkMode";
 
 const UserMenu = () => {
 	return (
@@ -38,7 +39,7 @@ const UserMenu = () => {
 						</DropdownMenuItem>
 
 						<DropdownMenuItem>
-							<div className="">Dark Mode</div>
+							<DarkMode />
 						</DropdownMenuItem>
 					</DropdownMenuGroup>
 					<DropdownMenuSeparator />
