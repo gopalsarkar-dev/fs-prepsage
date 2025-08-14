@@ -24,3 +24,13 @@ export const signupFormSchema = z.object({
 		})
 		.max(20, { error: "Password Maximum have 20 characters or short." }),
 });
+
+export const userPostSchema = z.object({
+	select: z.string().min(1, { error: "Select Question Patern" }),
+	question: z
+		.string()
+		.min(10, { error: "Question must have 10 characters or more." }),
+	answer: z
+		.string()
+		.min(25, { error: "Answer must have 25 characters or more." }),
+});
