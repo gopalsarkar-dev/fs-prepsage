@@ -4,7 +4,7 @@
 	"private": true,
 	"scripts": {
 		"dev": "rimraf .next && next dev --turbopack",
-		"build": "next lint && next build next start",
+		"build": "next lint && next build",
 		"start": "next start",
 		"lint": "next lint",
 		"prod": "rimraf .next && next lint && next build && next start"
