@@ -1,4 +1,10 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## PrepSagr
+
+PrepSagr is a smart learning platform designed to help users prepare for technical interviews, and skill development.
+
+PrepSagr is a Full-Stack project built on Monolithic Architecture for simplicity and user-friendly interface.
+
+✅ Monolithic Architecture, meaning both the frontend and backend are developed and deployed as a single codebase within one project repository.
 
 ## Getting Started
 
