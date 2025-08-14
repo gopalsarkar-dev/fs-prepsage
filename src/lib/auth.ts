@@ -4,6 +4,10 @@ import { prismaAdapter } from "better-auth/adapters/prisma";
 import prisma from "./db/prisma";
 import { serverEnv } from "./env/serverEnv";
 import { nextCookies } from "better-auth/next-js";
+import {
+	handelHashpasswordFn,
+	handelVerifypasswordFn,
+} from "./passwardHashArgon2";
 
 export const auth = betterAuth({
 	secret: serverEnv.BETTER_AUTH_SECRET,
@@ -13,6 +17,10 @@ export const auth = betterAuth({
 	emailAndPassword: {
 		enabled: true,
 		autoSignIn: false,
+		password: {
+			hash: handelHashpasswordFn,
+			verify: handelVerifypasswordFn,
+		},
 	},
 
 	plugins: [nextCookies()],
