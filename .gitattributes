@@ -1,6 +1,8 @@
-# Ignore JavaScript build files in language stats
-*.js linguist-detectable=false
+# Ignore build artifacts
+dist/* linguist-vendored
+build/* linguist-vendored
+.next/* linguist-vendored
+out/* linguist-vendored
 
-# Optionally, ignore entire build folder
-dist/* linguist-detectable=false
-build/* linguist-detectable=false
+# Optional: mark declaration files as TypeScript
+*.d.ts linguist-language=TypeScript
