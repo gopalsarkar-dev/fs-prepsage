@@ -1,0 +1,8 @@
+# Ignore build artifacts
+dist/* linguist-vendored
+build/* linguist-vendored
+.next/* linguist-vendored
+out/* linguist-vendored
+
+# Optional: mark declaration files as TypeScript
+*.d.ts linguist-language=TypeScript

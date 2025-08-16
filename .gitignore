@@ -14,11 +14,14 @@
 /coverage
 
 # next.js
-/.next/
+.next/
 /out/
 
 # production
-/build
+dist/
+build/
+*.js
+!*.config.js  # if you still need config files
 
 # misc
 .DS_Store
