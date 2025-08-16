@@ -12,7 +12,7 @@ export const loginFormSchema = z.object({
 });
 
 export const signupFormSchema = z.object({
-	first_name: z
+	name: z
 		.string()
 		.min(3, { error: "first_name must have 3 characters or more." }),
 	email: z.email({ error: "email is required!" }).toLowerCase(),
