@@ -1,0 +1,6 @@
+# Ignore JavaScript build files in language stats
+*.js linguist-detectable=false
+
+# Optionally, ignore entire build folder
+dist/* linguist-detectable=false
+build/* linguist-detectable=false
