@@ -12,17 +12,23 @@ import {
 import { User } from "lucide-react";
 import DarkMode from "../theme/DarkMode";
 import UserLogout from "../logout/UserLogout";
+import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/tooltip";
 
 const UserMenu = () => {
 	return (
 		<>
 			<DropdownMenu>
-				<DropdownMenuTrigger
-					asChild
-					className="cursor-pointer">
-					<Avatar>
-						<AvatarFallback>R</AvatarFallback>
-					</Avatar>
+				<DropdownMenuTrigger className="cursor-pointer">
+					<Tooltip>
+						<TooltipTrigger asChild>
+							<Avatar>
+								<AvatarFallback>R</AvatarFallback>
+							</Avatar>
+						</TooltipTrigger>
+						<TooltipContent>
+							<p>More Options</p>
+						</TooltipContent>
+					</Tooltip>
 				</DropdownMenuTrigger>
 				<DropdownMenuContent
 					className="mt-6 w-56"
