@@ -2,14 +2,28 @@
 
 import { LogOut } from "lucide-react";
 import { useRouter } from "next/navigation";
+import logOut from "../hooks/tempAuth/logOut";
+import { toast } from "react-toastify";
 
 const UserLogout = () => {
 	const { push } = useRouter();
+
+	const handelLogOutFn = async () => {
+		const { message, success } = await logOut();
+		if (!success) {
+			toast.error(message);
+		}
+		if (success) {
+			toast.success(message);
+			push("/login");
+		}
+	};
+
 	return (
 		<>
 			<div
 				className="flex cursor-pointer items-center gap-2 font-semibold text-red-500"
-				onClick={() => push("/login")}>
+				onClick={handelLogOutFn}>
 				<LogOut className="text-red-500" />
 				<span>LogOut</span>
 			</div>
