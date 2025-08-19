@@ -25,6 +25,7 @@ import { Button } from "../ui/button";
 import Link from "next/link";
 import logIn from "../hooks/tempAuth/logIn";
 import { toast } from "react-toastify";
+import { loginTohomeRedirect } from "../hooks/action/actions";
 
 const LoginForm = () => {
 	const lForm = useForm<LoginFormType>({
@@ -42,6 +43,7 @@ const LoginForm = () => {
 
 		if (success) {
 			toast.success(message);
+			await loginTohomeRedirect();
 		}
 	};
 

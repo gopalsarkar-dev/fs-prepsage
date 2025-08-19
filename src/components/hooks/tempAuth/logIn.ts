@@ -8,7 +8,6 @@ const logIn = async (lInfo: LoginFormType) => {
 		const { error } = await authClient.signIn.email({
 			email,
 			password,
-			callbackURL: "/",
 		});
 
 		if (error) {
