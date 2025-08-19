@@ -1,13 +1,11 @@
 "use client";
 
 import { LogOut } from "lucide-react";
-import { useRouter } from "next/navigation";
-import logOut from "../hooks/tempAuth/logOut";
 import { toast } from "react-toastify";
+import { signupTologinRedirect } from "../hooks/action/actions";
+import logOut from "../hooks/tempAuth/logOut";
 
 const UserLogout = () => {
-	const { push } = useRouter();
-
 	const handelLogOutFn = async () => {
 		const { message, success } = await logOut();
 		if (!success) {
@@ -15,7 +13,7 @@ const UserLogout = () => {
 		}
 		if (success) {
 			toast.success(message);
-			push("/login");
+			await signupTologinRedirect();
 		}
 	};
 

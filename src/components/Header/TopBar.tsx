@@ -1,8 +1,17 @@
 import Link from "next/link";
 import UserPostDialog from "../post/UserPostDialog";
 import UserMenu from "../profilemenu/UserMenu";
+import { authClient } from "@/lib/auth-client";
+import { headers } from "next/headers";
+import { Button } from "../ui/button";
 
-const TopBar = () => {
+const TopBar = async () => {
+	const { data } = await authClient.getSession({
+		fetchOptions: {
+			headers: await headers(),
+		},
+	});
+
 	return (
 		<>
 			<nav className="sticky top-0 w-full border border-b backdrop-blur-sm">
@@ -14,7 +23,13 @@ const TopBar = () => {
 					</Link>
 					<div className="flex items-center justify-center gap-4">
 						<UserPostDialog />
-						<UserMenu />
+						{data?.session ? (
+							<UserMenu />
+						) : (
+							<Link href="/login">
+								<Button className="cursor-pointer">Login</Button>
+							</Link>
+						)}
 					</div>
 				</section>
 			</nav>
