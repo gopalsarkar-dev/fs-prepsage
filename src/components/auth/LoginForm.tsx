@@ -23,6 +23,9 @@ import {
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import Link from "next/link";
+import logIn from "../hooks/tempAuth/logIn";
+import { toast } from "react-toastify";
+import { loginTohomeRedirect } from "../hooks/action/actions";
 
 const LoginForm = () => {
 	const lForm = useForm<LoginFormType>({
@@ -31,8 +34,17 @@ const LoginForm = () => {
 		mode: "all",
 	});
 
-	const handelLoginFn = (lInfo: LoginFormType) => {
-		console.log(lInfo);
+	const handelLoginFn = async (lInfo: LoginFormType) => {
+		const { message, success } = await logIn(lInfo);
+
+		if (!success) {
+			toast.error(message);
+		}
+
+		if (success) {
+			toast.success(message);
+			await loginTohomeRedirect();
+		}
 	};
 
 	return (

@@ -23,17 +23,29 @@ import {
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import Link from "next/link";
+import signUp from "../hooks/tempAuth/signUp";
+import { toast } from "react-toastify";
+import { signupTologinRedirect } from "../hooks/action/actions";
 
 const SignupForm = () => {
 	const lForm = useForm<SignupFormType>({
 		resolver: zodResolver(signupFormSchema),
-		defaultValues: { first_name: "", email: "", password: "" },
+		defaultValues: { name: "", email: "", password: "" },
 		mode: "all",
 	});
 
-	const handelSignupFn = (sInfo: SignupFormType) => {
-		console.log(sInfo);
-		lForm.reset();
+	const handelSignupFn = async (sInfo: SignupFormType) => {
+		const { message, success } = await signUp(sInfo);
+
+		if (!success) {
+			toast.error(message);
+		}
+
+		if (success) {
+			toast.success(message);
+			lForm.reset();
+			await signupTologinRedirect();
+		}
 	};
 
 	return (
@@ -45,21 +57,21 @@ const SignupForm = () => {
 							<CardHeader className="grid gap-2">
 								<CardTitle>Create to your account</CardTitle>
 								<CardDescription>
-									Enter your first_name, email and password below to create your
+									Enter your name, email and password below to create your
 									account.
 								</CardDescription>
 							</CardHeader>
 							<CardContent className="space-y-5">
 								<FormField
 									control={lForm.control}
-									name="first_name"
+									name="name"
 									render={({ field }) => (
 										<FormItem>
-											<FormLabel>First_name</FormLabel>
+											<FormLabel>name</FormLabel>
 											<FormControl>
 												<Input
 													type="text"
-													placeholder="enter your first_name..."
+													placeholder="enter your name..."
 													{...field}
 												/>
 											</FormControl>

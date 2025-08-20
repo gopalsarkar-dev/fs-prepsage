@@ -13,8 +13,16 @@ import { User } from "lucide-react";
 import DarkMode from "../theme/DarkMode";
 import UserLogout from "../logout/UserLogout";
 import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/tooltip";
+import { authClient } from "@/lib/auth-client";
+import { headers } from "next/headers";
 
-const UserMenu = () => {
+const UserMenu = async () => {
+	const { data } = await authClient.getSession({
+		fetchOptions: {
+			headers: await headers(),
+		},
+	});
+
 	return (
 		<>
 			<DropdownMenu>
@@ -22,7 +30,9 @@ const UserMenu = () => {
 					<Tooltip>
 						<TooltipTrigger asChild>
 							<Avatar>
-								<AvatarFallback>R</AvatarFallback>
+								<AvatarFallback className="font-bold">
+									{data?.user.name.charAt(0)}
+								</AvatarFallback>
 							</Avatar>
 						</TooltipTrigger>
 						<TooltipContent>
