@@ -38,6 +38,7 @@ import {
 	SelectValue,
 } from "../ui/select";
 import { Textarea } from "../ui/textarea";
+import Link from "next/link";
 
 const UserPostDialog = () => {
 	const uForm = useForm<UserPostType>({
@@ -52,100 +53,115 @@ const UserPostDialog = () => {
 
 	return (
 		<>
-			<Dialog>
+			{/* <Dialog>
 				<DialogTrigger asChild>
-					<Button className="cursor-pointer">Post</Button>
+					<Link href="/prepsage-post">
+						<Button className="cursor-pointer">Post</Button>
+					</Link>
 				</DialogTrigger>
 				<DialogContent>
 					<DialogHeader>
 						<DialogTitle>Post</DialogTitle>
 						<DialogDescription></DialogDescription>
-					</DialogHeader>
+					</DialogHeader> */}
 
-					<Form {...uForm}>
-						<form onSubmit={uForm.handleSubmit(handelLoginFn)}>
-							<Card className="">
-								<CardHeader className="">
-									<CardTitle>For Interviews prepare</CardTitle>
-									<FormDescription>
-										Users prepare for technical interviews, and skill
-										development.
-									</FormDescription>
-								</CardHeader>
-								<CardContent className="space-y-5">
-									<FormField
-										control={uForm.control}
-										name="select"
-										render={({ field }) => (
-											<FormItem>
-												<FormLabel>Select Question Mode</FormLabel>
+			<Form {...uForm}>
+				<form onSubmit={uForm.handleSubmit(handelLoginFn)}>
+					<Card className="">
+						<CardHeader className="">
+							<CardTitle className="text-2xl">For Interviews prepare</CardTitle>
+							<FormDescription className="text-lg">
+								Users prepare for technical interviews, and skill development.
+							</FormDescription>
+						</CardHeader>
+						<CardContent className="space-y-5">
+							<FormField
+								control={uForm.control}
+								name="select"
+								render={({ field }) => (
+									<FormItem>
+										<FormLabel className="text-lg">
+											Select Question Mode
+										</FormLabel>
+										<FormControl>
+											<Select
+												onValueChange={field.onChange}
+												defaultValue={field.value}>
 												<FormControl>
-													<Select
-														onValueChange={field.onChange}
-														defaultValue={field.value}>
-														<FormControl>
-															<SelectTrigger className="w-full">
-																<SelectValue placeholder="Select Question Mode" />
-															</SelectTrigger>
-														</FormControl>
-														<SelectContent className="w-full">
-															<SelectItem value="easy">Easy </SelectItem>
-															<SelectItem value="medium">Medium</SelectItem>
-															<SelectItem value="hard">Hard</SelectItem>
-														</SelectContent>
-													</Select>
+													<SelectTrigger className="w-full text-lg">
+														<SelectValue placeholder="Select Question Mode" />
+													</SelectTrigger>
 												</FormControl>
-												<FormMessage />
-											</FormItem>
-										)}
-									/>
+												<SelectContent className="w-full text-lg">
+													<SelectItem
+														value="easy"
+														className="text-lg">
+														Easy
+													</SelectItem>
+													<SelectItem
+														value="medium"
+														className="text-lg">
+														Medium
+													</SelectItem>
+													<SelectItem
+														value="hard"
+														className="text-lg">
+														Hard
+													</SelectItem>
+												</SelectContent>
+											</Select>
+										</FormControl>
+										<FormMessage />
+									</FormItem>
+								)}
+							/>
 
-									<FormField
-										control={uForm.control}
-										name="question"
-										render={({ field }) => (
-											<FormItem>
-												<FormLabel>Question</FormLabel>
-												<FormControl>
-													<Input
-														type="password"
-														placeholder="enter your qusetion..."
-														{...field}
-													/>
-												</FormControl>
-												<FormMessage />
-											</FormItem>
-										)}
-									/>
-									<FormField
-										control={uForm.control}
-										name="answer"
-										render={({ field }) => (
-											<FormItem>
-												<FormLabel>Answer</FormLabel>
-												<FormControl>
-													<Textarea
-														placeholder="enter your answer..."
-														{...field}
-													/>
-												</FormControl>
-												<FormMessage />
-											</FormItem>
-										)}
-									/>
-								</CardContent>
-								<CardFooter className="grid gap-2">
-									<Button
-										type="submit"
-										className="w-full cursor-pointer">
-										Post
-									</Button>
-								</CardFooter>
-							</Card>
-						</form>
-					</Form>
-				</DialogContent>
-			</Dialog>
+							<FormField
+								control={uForm.control}
+								name="question"
+								render={({ field }) => (
+									<FormItem>
+										<FormLabel className="text-lg">Question</FormLabel>
+										<FormControl>
+											<Input
+												type="text"
+												placeholder="enter your qusetion..."
+												{...field}
+											/>
+										</FormControl>
+										<FormMessage />
+									</FormItem>
+								)}
+							/>
+							<FormField
+								control={uForm.control}
+								name="answer"
+								render={({ field }) => (
+									<FormItem>
+										<FormLabel className="text-lg">Answer</FormLabel>
+										<FormControl>
+											<Textarea
+												placeholder="enter your answer..."
+												{...field}
+											/>
+										</FormControl>
+										<FormMessage />
+									</FormItem>
+								)}
+							/>
+						</CardContent>
+						<CardFooter className="grid gap-2">
+							<Button
+								type="submit"
+								className="w-full cursor-pointer">
+								Post
+							</Button>
+						</CardFooter>
+					</Card>
+				</form>
+			</Form>
+			{/* </DialogContent>
+			</Dialog> */}
 		</>
 	);
 };

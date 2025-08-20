@@ -22,7 +22,9 @@ const TopBar = async () => {
 						prepsage
 					</Link>
 					<div className="flex items-center justify-center gap-4">
-						<UserPostDialog />
+						<Link href="/prepsage-post">
+							<Button className="cursor-pointer">Post</Button>
+						</Link>
 						{data?.session ? (
 							<UserMenu />
 						) : (
