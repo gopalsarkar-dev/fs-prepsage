@@ -1,10 +1,32 @@
-## PrepSagr
+## 🧠 Project Thought Process – PrepSagr
 
-PrepSagr is a smart learning platform designed to help users prepare for technical interviews, and skill development.
+When starting PrepSagr, the main goal was to build a smart learning platform that helps users prepare for technical interviews and skill development.
 
-PrepSagr is a Full-Stack project built on Monolithic Architecture for simplicity and user-friendly interface.
+“I chose Monolithic Architecture because it keeps everything simple at the beginning."
 
-✅ Monolithic Architecture, meaning both the frontend and backend are developed and deployed as a single codebase within one project repository.
+This means both the frontend (UI) and the backend (server + database) live inside one single codebase.
+
+Why? 👉 Because it keeps everything simple, easy to manage, and faster to develop at the early stage.
+
+The thought process was:
+
+Start small, grow later → At First, focus on getting the basics (auth system, routes, UI) working.
+
+Single codebase → Easier to maintain and deploy without worrying about multiple services.
+
+My-first approach → Build features step by step, always keeping in mind what the user needs most (signup, signin, secure routes, learning resources).
+
+Scalability later → Right now, simplicity is more important. Later, if the platform grows, I can break it into microservices.
+
+📈 Current Project Progress (55%)
+
+✅ Basic setup is complete.
+
+✅ User Signup, Signin, and Signout are working.
+
+✅ Protected routes are added so only logged-in users can access certain pages. without login user can access reading only.
+
+Next steps → user post, view, and content management features.
 
 ## Getting Started
 
@@ -34,9 +56,3 @@ To learn more about Next.js, take a look at the following resources:
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
