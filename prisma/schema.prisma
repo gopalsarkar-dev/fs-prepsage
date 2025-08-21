@@ -13,7 +13,7 @@ datasource db {
 
 model Post {
   id       String @id @unique @default(uuid())
-  select   String
+  qtype    String
   question String
   answer   String
   userId   String

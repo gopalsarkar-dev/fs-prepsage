@@ -13,14 +13,6 @@ import {
 	CardTitle,
 } from "../ui/card";
 import {
-	Dialog,
-	DialogContent,
-	DialogDescription,
-	DialogHeader,
-	DialogTitle,
-	DialogTrigger,
-} from "../ui/dialog";
-import {
 	Form,
 	FormControl,
 	FormDescription,
@@ -38,33 +30,31 @@ import {
 	SelectValue,
 } from "../ui/select";
 import { Textarea } from "../ui/textarea";
-import Link from "next/link";
+import createPost from "../hooks/post/createPost";
+import { toast } from "react-toastify";
 
 const UserPostDialog = () => {
 	const uForm = useForm<UserPostType>({
 		resolver: zodResolver(userPostSchema),
-		defaultValues: { select: "", answer: "", question: "" },
+		defaultValues: { qtype: "", answer: "", question: "" },
 		mode: "all",
 	});
 
-	const handelLoginFn = (lInfo: UserPostType) => {
-		console.log(lInfo);
+	const handelLoginFn = async (lInfo: UserPostType) => {
+		const { message, success } = await createPost(lInfo);
+
+		if (!success) {
+			toast.error(message);
+		}
+
+		if (success) {
+			toast.success(message);
+			uForm.reset();
+		}
 	};
 
 	return (
 		<>
-			{/* <Dialog>
-				<DialogTrigger asChild>
-					<Link href="/prepsage-post">
-						<Button className="cursor-pointer">Post</Button>
-					</Link>
-				</DialogTrigger>
-				<DialogContent>
-					<DialogHeader>
-						<DialogTitle>Post</DialogTitle>
-						<DialogDescription></DialogDescription>
-					</DialogHeader> */}
-
 			<Form {...uForm}>
 				<form onSubmit={uForm.handleSubmit(handelLoginFn)}>
 					<Card className="">
@@ -77,7 +67,7 @@ const UserPostDialog = () => {
 						<CardContent className="space-y-5">
 							<FormField
 								control={uForm.control}
-								name="select"
+								name="qtype"
 								render={({ field }) => (
 									<FormItem>
 										<FormLabel className="text-lg">
@@ -160,8 +150,6 @@ const UserPostDialog = () => {
 					</Card>
 				</form>
 			</Form>
-			{/* </DialogContent>
-			</Dialog> */}
 		</>
 	);
 };
