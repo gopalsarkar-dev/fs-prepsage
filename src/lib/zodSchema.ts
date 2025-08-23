@@ -26,7 +26,7 @@ export const signupFormSchema = z.object({
 });
 
 export const userPostSchema = z.object({
-	select: z.string().min(1, { error: "Select Question Patern" }),
+	qtype: z.string().min(1, { error: "Select Question Patern" }),
 	question: z
 		.string()
 		.min(10, { error: "Question must have 10 characters or more." }),

@@ -7,7 +7,12 @@
 		"build": "next lint && next build",
 		"start": "next start",
 		"lint": "next lint",
-		"prod": "rimraf .next && next lint && next build && next start"
+		"prod": "rimraf .next && next lint && next build && next start",
+		"db:generate": "prisma generate",
+		"db:format": "prisma format",
+		"db:migrate": "prisma migrate dev",
+		"db:reset": "prisma migrate reset",
+		"db:studio": "prisma studio"
 	},
 	"dependencies": {
 		"@hookform/resolvers": "5.2.1",
