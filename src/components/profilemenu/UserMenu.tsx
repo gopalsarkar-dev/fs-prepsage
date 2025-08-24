@@ -9,7 +9,7 @@ import {
 	DropdownMenuSeparator,
 	DropdownMenuTrigger,
 } from "../ui/dropdown-menu";
-import { User } from "lucide-react";
+import { ArrowsUpFromLine, User } from "lucide-react";
 import DarkMode from "../theme/DarkMode";
 import UserLogout from "../logout/UserLogout";
 import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/tooltip";
@@ -52,6 +52,14 @@ const UserMenu = async () => {
 								className="flex items-center gap-2 font-semibold">
 								<User />
 								<span>Profile</span>
+							</Link>
+						</DropdownMenuItem>
+						<DropdownMenuItem>
+							<Link
+								href="/all-post"
+								className="flex items-center gap-2 font-semibold">
+								<ArrowsUpFromLine />
+								<span>All-Post</span>
 							</Link>
 						</DropdownMenuItem>
 
