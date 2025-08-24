@@ -31,5 +31,5 @@ export async function middleware(request: NextRequest) {
 
 export const config = {
 	// protect all app routes except api/static/public ones. Adjust pattern to taste.
-	matcher: ["/", "/profile", "/prepsage-post"],
+	matcher: ["/profile", "/prepsage-post"],
 };
