@@ -18,7 +18,7 @@ My-first approach → Build features step by step, always keeping in mind what t
 
 Scalability later → Right now, simplicity is more important. Later, if the platform grows, I can break it into microservices.
 
-📈 Current Project Progress (55%)
+## 📈 Current Project Progress
 
 ✅ Basic setup is complete.
 
@@ -26,7 +26,41 @@ Scalability later → Right now, simplicity is more important. Later, if the pla
 
 ✅ Protected routes are added so only logged-in users can access certain pages. without login user can access reading only.
 
-Next steps → user post, view, and content management features.
+✅ Logged-in user post, view profile, and profile update
+
+## 🛠️ Features
+
+🔐 Secure Authentication (Login, Signup and Signout).
+
+👤 User Profile.
+
+🖊️ Post (Select Question Level and answer)
+
+🌙 Dark/Light Theme toggle.
+
+🧩 Reusable UI components (ShadcnUI).
+
+🔒 Protected routes.
+
+🔁 Real-time updates.
+
+📲 Responsive design.
+
+## 🏗️ Tech Stack
+
+. Full-Stack Framework: Next.js (App Router)
+
+. Authentication: Better Auth
+
+. Styling: Tailwind CSS, Shadcn/UI
+
+. Database: Sqlite
+
+. Prisma and Prisma Client
+
+. Validation: @t3-oss/env-nextjs and Zod
+
+. Utilities: Prettier (with TailwindCSS plugin), Rimraf,Eslient
 
 ## Getting Started
 
@@ -43,10 +77,6 @@ bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
 ## Learn More
 
