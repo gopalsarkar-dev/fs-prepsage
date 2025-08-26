@@ -7,6 +7,14 @@ type FeedCardProps = {
 };
 
 const FeedCardMap = ({ fInfo }: FeedCardProps) => {
+	if (fInfo.length === 0) {
+		return (
+			<div className="text-2xl font-bold">
+				No qusetion & answers avable at this time.
+			</div>
+		);
+	}
+
 	return (
 		<>
 			<div className="space-y-5">
@@ -16,11 +24,7 @@ const FeedCardMap = ({ fInfo }: FeedCardProps) => {
 							key={item.id}
 							className="sm:w-full">
 							<CardContent className="space-y-3">
-								<Button
-									className=""
-									variant={"ghost"}>
-									{item.qtype}
-								</Button>
+								<Button variant={"outline"}>{item.qtype}</Button>
 								<div className="text-2xl">{item.question}</div>
 								<div className="text-lg">{item.answer}</div>
 							</CardContent>
