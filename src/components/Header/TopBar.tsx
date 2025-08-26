@@ -1,8 +1,7 @@
-import Link from "next/link";
-import UserPostDialog from "../post/UserPostDialog";
-import UserMenu from "../profilemenu/UserMenu";
 import { authClient } from "@/lib/auth-client";
 import { headers } from "next/headers";
+import Link from "next/link";
+import UserMenu from "../profilemenu/UserMenu";
 import { Button } from "../ui/button";
 
 const TopBar = async () => {
